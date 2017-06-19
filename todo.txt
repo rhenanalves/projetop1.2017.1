@@ -1,21 +1,24 @@
 ﻿23052017 1030 (A) Reunião com Huguinho, Luizinho e Zezinho. @Skype +Pesquisa  
 (B) Terminar a especificação do projeto de IF968. +IF968
-(B)  
- Publicar a especificação do projeto de IF968 terminada. +IF968
-  
+(B) Publicar a especificação do projeto de IF968 terminada. +IF968
 (A) Corrigir provas de IF968 +IF968
-  
 (A) Ler artigo IST. +Serviço
 2330 Dormir cedo @Casa  
 (B) Revisar artigo IST +Service
- 
 (B) Revisar artigos SBES +Service
-  
 (B) Revisar artigos SBES Education +Service
-  
 (B) Revisar artigos SBES Insightful Ideas +Service
- (B) Revisar artigos SBLP +Service
-  
+(B) Revisar artigos SBLP +Service
 (D) Read "Optimizing energy consumption of GUIs in android apps: A multi-objective approach."
-
 Comer menos açúcar 
+13012017 2130 (B) Reunião com Huguinho, Luizinho e Zezinho. @Skype +Pesquisa  
+﻿23022017 1230 (A) Reunião com Huguinho, Luizinho e Zezinho. @Skype +IF968 
+﻿29032017 1130 (A) Reunião com Huguinho, Luizinho e Zezinho. @Skype +IF968   
+﻿20042017 0930 (A) Reunião com Huguinho, Luizinho e Zezinho. @Skype +IF968   
+﻿03052017 1930 (A) Reunião com Huguinho, Luizinho e Zezinho. @Skype +IF979 
+03052017 1530 (A) Reunião com Huguinho, Luizinho e Zezinho. @Skype +IF979  
+﻿23062017 1630 (A) Reunião com Huguinho, Luizinho e Zezinho. @Skype +IF979 
+﻿13072017 1040 (B) Reunião com Huguinho, Luizinho e Zezinho. @Skype +PIBIC  
+﻿13082017 1010 (B) Reunião com Huguinho, Luizinho e Zezinho. @Skype +PIBIC   
+﻿21092017 1111 (B) Reunião com Huguinho, Luizinho e Zezinho. @Skype +PIBIC    
+
