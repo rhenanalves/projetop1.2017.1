@@ -213,7 +213,7 @@ def listar():
       printCores(item[2], GREEN)
     if item[1] == 'D' or 'd':
       printCores(item[2], BLUE) 
-    return index,item 
+  return index,item 
 
 def ordenarPorDataHora(itens):
 
@@ -235,22 +235,36 @@ def fazer(num):
 
   return 
 
-def remover():
-
-  ################ COMPLETAR
-
-  return
+def remover(num):
+  g = open('todo.txt', 'r+')
+  lis  = listar()
+  if num in lis:
+    a = num.readline()
+    b = a.split()
+    for i in b:
+      if i == num:
+        i = g.write('')
+      else:
+        raise ValueError ('ATIVIDADE INEXISTENTE') 
+  return 'Atividade removida'
+      
 
 # prioridade é uma letra entre A a Z, onde A é a mais alta e Z a mais baixa.
 # num é o número da atividade cuja prioridade se planeja modificar, conforme
 # exibido pelo comando 'l'. 
 def priorizar(num, prioridade):
-
-  ################ COMPLETAR
-
-  return 
-
-
+  arq = open('todo.txt', 'r+')
+  lis = listar()
+  if num in lis:
+    a = num.readline()
+    b = a.split()
+    for i in b:
+      if validarPrioridade(i) == True:
+        i = arq.write(prioridade)
+      else:
+        raise ValueError ('NÃO EXISTE PRIORIDADE')
+  arq.close()
+  return 'Atividade priorizada'
 
 # Esta função processa os comandos e informações passados através da linha de comando e identifica
 # que função do programa deve ser invocada. Por exemplo, se o comando 'adicionar' foi usado,
@@ -260,31 +274,26 @@ def priorizar(num, prioridade):
 # projetos.
 
 def processarComandos(comandos) :
-  if comandos[0] == ADICIONAR:
+  if comandos == ADICIONAR:
     comandos.pop(0) # remove 'agenda.py'
     comandos.pop(0) # remove 'adicionar'
     itemParaAdicionar = organizar([' '.join(comandos)])[0]
     # itemParaAdicionar = (descricao, (prioridade, data, hora, contexto, projeto))
     adicionar(itemParaAdicionar[0], itemParaAdicionar[1]) # novos itens não têm prioridade
-  elif comandos[0] == LISTAR:
+  elif comandos == LISTAR:
     return listar()
 
-  elif comandos[0] == REMOVER:
-    
-    return    
+  elif comandos == REMOVER:
+    num = int(input('Numero de uma tarefa'))
+    return remover(num)   
 
-    ################ COMPLETAR    
+  elif comandos == FAZER:
+    num = int(input('Numero de uma tarefa'))
+    return fazer(num)
 
-  elif comandos[0] == FAZER:
-    return    
-
-    ################ COMPLETAR
-
-  elif comandos[0] == PRIORIZAR:
-    return    
-
-    ################ COMPLETAR
-
+  elif comandos == PRIORIZAR:
+    num = int(input('Numero de uma tarefa'))
+    return priorizar(num)
   else :
     print("Comando inválido.")
     
