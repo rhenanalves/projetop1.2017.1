@@ -230,10 +230,18 @@ def ordenarPorPrioridade(itens):
         return itens
 
 def fazer(num):
-
-  ################ COMPLETAR
-
-  return 
+  g = open('todo.txt', 'r+')
+  k = open('done.txt', 'w')
+  lis = listar()
+  if num in lis:
+    a = num.readline()
+    k.write(a)
+    g.write(a = 'Atividade Feita')
+  else:
+    raise ValueError ('ATIVIDADE NÃO LISTADA')
+  g.close()
+  k.close()
+  return 'Atividade marcada como feita'
 
 def remover(num):
   g = open('todo.txt', 'r+')
