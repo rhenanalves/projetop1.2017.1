@@ -62,7 +62,7 @@ def adicionar(descricao, extras):
     novaAtividade = descricao + (a + '' + b + '' + c + '' + d + '' + e)
     # Escreve no TODO_FILE. 
   try: 
-    fp = open('todo.txt', 'w')
+    fp = open('todo.txt', 'a')
     fp.write(novaAtividade + "\n")
     fp.close()
     return 'ADICIONADO'
@@ -286,24 +286,24 @@ def priorizar(num, prioridade):
 # projetos.
 
 def processarComandos(comandos) :
-  if comandos == ADICIONAR:
+  if comandos[1] == ADICIONAR:
     comandos.pop(0) # remove 'agenda.py'
     comandos.pop(0) # remove 'adicionar'
     itemParaAdicionar = organizar([' '.join(comandos)])[0]
     # itemParaAdicionar = (descricao, (prioridade, data, hora, contexto, projeto))
     adicionar(itemParaAdicionar[0], itemParaAdicionar[1]) # novos itens não têm prioridade
-  elif comandos == LISTAR:
+  elif comandos[1] == LISTAR:
     return listar()
 
-  elif comandos == REMOVER:
+  elif comandos[1] == REMOVER:
     num = int(input('Numero de uma tarefa'))
     return remover(num)   
 
-  elif comandos == FAZER:
+  elif comandos[1] == FAZER:
     num = int(input('Numero de uma tarefa'))
     return fazer(num)
 
-  elif comandos == PRIORIZAR:
+  elif comandos[1] == PRIORIZAR:
     num = int(input('Numero de uma tarefa'))
     return priorizar(num)
   else :
