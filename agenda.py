@@ -40,30 +40,36 @@ def printCores(texto, cor) :
 # Qualquer elemento da tupla que contenha um string vazio ('') não
 # deve ser levado em consideração. 
 def adicionar(descricao, extras):
-
   # não é possível adicionar uma atividade que não possui descrição. 
+  j = 0
+  string = ''
+  novaAtividade = ''
   if descricao  == '' :
     return False
-  else:
-    if extras[0] == '':
-      extras[0].pop()
-    else:
-      if dataValida(extras[0]) == True:
-        extras.pop()  
-  ################ COMPLETAR
-
-
-  # Escreve no TODO_FILE. 
+    pass
+    while j <= len(extras):
+      tok = extras.split()
+      if dataValida(tok[j]) == True:
+        a = tok[j]
+      elif horaValida(tok[j]) == True:
+        b = tok[j]
+      elif prioridadeValida(tok[j]) == True:
+        c = tok[j]
+      elif projetoValido(tok[j]) == True:
+        d = tok[j]
+      elif contextoValido(tok[j]) == True:
+        e = tok[j]
+    novaAtividade = descricao + (a + '' + b + '' + c + '' + d + '' + e)
+    # Escreve no TODO_FILE. 
   try: 
-    fp = open(TODO_FILE, 'a')
+    fp = open('todo.txt', 'w')
     fp.write(novaAtividade + "\n")
     fp.close()
+    return 'ADICIONADO'
   except IOError as err:
     print("Não foi possível escrever para o arquivo " + TODO_FILE)
     print(err)
     return False
-
-  return True
 
 
 # Valida a prioridade.
@@ -176,17 +182,19 @@ def organizar(g):
     tokens = l.split() # quebra o string em palavras
 
     while j < len(tokens):
-      if dataValida(tokens[j]) == True:
-        data = tokens[j]
-      elif horaValida(tokens[j]) == True:
+      if horaValida(tokens[j]) == True:
         hora = tokens[j]
+      elif dataValida(tokens[j]) == True:
+        data = tokens[j]
       elif prioridadeValida(tokens[j]) == True:
         pri = tokens[j]
       elif (projetoValido(tokens[-1]) and contextoValido(tokens[-2])) == True:
         contexto = tokens[-2]
         projeto = tokens[-1]
-      j += 1
-      itens.append((desc, (data, hora, pri, contexto, projeto)))
+      else:
+        desc = tokens[j] + desc
+      j = j + 1
+    itens.append((desc, (data, hora, pri, contexto, projeto)))
     return itens 
   g.close()
   
@@ -216,18 +224,13 @@ def listar():
   return index,item 
 
 def ordenarPorDataHora(itens):
-
-  ################ COMPLETAR
-
+  
   return itens
    
 def ordenarPorPrioridade(itens):
-    aux = organizar(itens)
-    j = 0
-    while j < len(aux):
-      if prioridadeValida(aux[j]) == True:
-        aux = 0       
-        return itens
+
+  return itens
+
 
 def fazer(num):
   g = open('todo.txt', 'r+')
@@ -253,7 +256,8 @@ def remover(num):
       if i == num:
         i = g.write('')
       else:
-        raise ValueError ('ATIVIDADE INEXISTENTE') 
+        raise ValueError ('ATIVIDADE INEXISTENTE')
+  g.close()
   return 'Atividade removida'
       
 
